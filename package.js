@@ -1,6 +1,7 @@
 Package.describe({
-  summary: "Generates the boilerplate html from program's manifest",
-  version: '1.0.10'
+  name: "noland:boilerplate-generator",
+  summary: "Overrides the core package to load scripts asynchronously.",
+  version: '1.0.11'
 });
 
 Package.onUse(function (api) {
