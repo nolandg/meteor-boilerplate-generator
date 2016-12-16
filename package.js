@@ -1,5 +1,5 @@
 Package.describe({
-  name: "noland:boilerplate-generator",
+  name: "boilerplate-generator",
   summary: "Overrides the core package to load scripts asynchronously.",
   version: '1.0.12'
 });
