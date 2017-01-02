@@ -55,8 +55,7 @@ Boilerplate.prototype._generateBoilerplateFromManifestAndSource =
       head: '',
       body: '',
       meteorManifest: JSON.stringify(manifest),
-      // Load all scripts async in production mode
-      asyncJs: Meteor.isProduction?'async="async"':'',
+      asyncJs: Meteor.isProduction?'async':null,
     };
 
     // allow the caller to extend the default base data

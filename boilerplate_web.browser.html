@@ -29,17 +29,17 @@
 
 <!--############ Each js ############-->
 {{#each js}}
-<script {{asyncJs}} type="text/javascript" src="{{../bundledJsCssUrlRewriteHook url}}"></script>
+<script async={{../asyncJs}} type="text/javascript" src="{{../bundledJsCssUrlRewriteHook url}}"></script>
 {{/each}}
 
 <!--############ Each  additionalStaticJs ############-->
 {{#each additionalStaticJs}}
   {{#if ../inlineScriptsAllowed}}
-    <script {{asyncJs}} type='text/javascript'>
+    <script type='text/javascript'>
       {{contents}}
     </script>
   {{else}}
-    <script {{asyncJs}} type='text/javascript' src='{{rootUrlPathPrefix}}{{pathname}}'></script>
+    <script type='text/javascript' src='{{rootUrlPathPrefix}}{{pathname}}'></script>
   {{/if}}
 {{/each}}
 
@@ -65,5 +65,6 @@
   else window.addEventListener('load', loadDeferredStyles);
 </script>
 
+{{asyncJs}}
 </body>
 </html>
