@@ -55,6 +55,7 @@ Boilerplate.prototype._generateBoilerplateFromManifestAndSource =
       head: '',
       body: '',
       meteorManifest: JSON.stringify(manifest),
+      // Load all scripts async in production mode
       asyncJs: Meteor.isProduction?'async="async"':'',
     };
 
@@ -72,7 +73,13 @@ Boilerplate.prototype._generateBoilerplateFromManifestAndSource =
       }
 
       if (item.type === 'css' && item.where === 'client') {
-        boilerplateBaseData.css.push(itemObj);
+        // If this is the stripped CSS then don't add it to the regular CSS,
+        // save it separately to add inline
+        if(item.path.indexOf('crater-bunny-stripped') !== -1){
+          boilerplateBaseData.strippedCss = readUtf8FileSync(pathMapper(item.path));
+        }else{
+          boilerplateBaseData.css.push(itemObj);
+        }
       }
       if (item.type === 'js' && item.where === 'client') {
         boilerplateBaseData.js.push(itemObj);
