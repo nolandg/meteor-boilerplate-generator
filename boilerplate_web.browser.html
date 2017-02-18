@@ -61,7 +61,7 @@
   };
   var raf = requestAnimationFrame || mozRequestAnimationFrame ||
       webkitRequestAnimationFrame || msRequestAnimationFrame;
-  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 5000); });
   else window.addEventListener('load', loadDeferredStyles);
 </script>
 
